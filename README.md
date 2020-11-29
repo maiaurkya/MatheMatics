@@ -1,2 +1,2 @@
 # MatheMatics
-MatheMatics Guru Project
+MatheMatics Guru Project on React
