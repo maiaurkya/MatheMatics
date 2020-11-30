@@ -1,0 +1,89 @@
+import React from 'react';
+
+const Header = ( ) => {
+	return(
+		<header className="top-header">
+			<div className="Lefi-side">
+			<LogoContainer />
+			</div>
+			<h1>Top Header</h1>
+			<div className="Right-side">
+				<Navigation />
+			</div>
+		</header>
+
+	);
+
+}
+export const LogoContainer = ( ) => {
+	return (
+		<div className="logo-container">
+		<LogoImg />
+		</div>
+	);
+}
+
+export const LogoImg = () => {
+	return	(
+		<img src="https://admin.onlinetestseries.in/data/images/admin/site/allen_logo.png" alt="logo" className="logo" />
+	);
+
+}
+export const contactCard = () => {
+	return (
+		<div className="contact-card">
+			<span>{contactDetails['mobile-number']}</span>
+		</div>
+
+	);
+}
+export const contactDetails = {
+		mobilenumber : 9971624578,
+		mobilenumber2 : 7011872292,
+		email : 'chandan77oatel77@gmail.com'
+		}
+
+		
+export const Navigation = () => {
+	return (
+			<>
+			<MenuWithTitle itemClass="group-menu-item sublinks" Title="" items = {[
+                                { label: 'Home', link: '/', iconClass: 'test-icon', linkClass: 'menu-item' },
+                        ]} />
+
+                        <MenuWithTitle itemClass="group-menu-item sublinks" Title="" items = {[
+                                { label: 'About', link: '/about', iconClass: 'test-icon', linkClass: 'menu-item' },
+                        ]} />
+                        <MenuWithTitle itemClass="group-menu-item sublinks" Title="" items = {[
+                                { label: 'Timeline', link: '/timeline', iconClass: 'test-icon', linkClass: 'menu-item' }
+                        ]} />
+
+                        <MenuWithTitle itemClass="group-menu-item sublinks" Title="" items = {[
+                                { label: 'Awards', link: '/awards', iconClass: 'test-icon', linkClass: 'menu-item' },
+                        ]} />
+			</>
+	);
+
+}
+
+export const  MenuWithTitle = (Props) => {
+        return(
+                <div className={Props.itemClass}>
+			{Props.Title ? 
+                        <h4>{Props.Title}</h4>
+			: ''
+			}
+                        <ul>
+                                {Props.items.map((val,ind) =>(
+                                <li className={val.linkClass} key={ind}>
+					<i className={val.iconClass}>
+						<span></span>
+					</i>
+					{val.label}
+                                </li>
+                                ))}
+                        </ul>
+                </div>
+        );
+}
+export default Header;

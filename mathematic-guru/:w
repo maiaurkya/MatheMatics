@@ -1,0 +1,43 @@
+import React, {Component} from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Header, {Footer} from './components/Header';
+import Slider from './components/Sliders';
+
+class App extends Component {
+constructor(props) {
+  super(props);
+  // Don't call this.setState() here!
+  this.state = { counter: 0 };
+}
+
+componentDidMount = () => {
+    window.addEventListener('scroll', this.handleScroll);
+}
+
+componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleScroll);
+}
+
+handleScroll = (event) => {
+    let scrollTop = event.srcElement.body.scrollTop,
+        itemTranslate = Math.min(0, scrollTop/3 - 60);
+
+    this.setState({
+      transform: itemTranslate
+    });
+}
+
+render(){
+  return (
+    <div className="App">
+	<Header scroll={this.handleScroll}/>
+      <header className="App-header">
+        <Slider />
+      </header>
+	<Footer />
+    </div>
+  );
+}
+}
+export default App;
